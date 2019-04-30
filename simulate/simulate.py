@@ -149,8 +149,8 @@ if __name__ == '__main__':
     output_dir = simulation_dir/'output'
 
     # load available metadata to determine the runs
-    metadata_path = data_dir/'metadata.csv'
-    metadata = pd.read_csv(metadata_path, index_col=0)
+    metadata_path = data_dir/'power-laws-optimizing-demand-side-strategies-metadata.csv'
+    metadata = pd.read_csv(metadata_path, index_col=0, sep=";")
 
     # store results of each run
     results = []

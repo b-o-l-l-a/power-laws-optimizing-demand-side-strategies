@@ -1,6 +1,6 @@
 FROM continuumio/anaconda3:latest
 
-RUN apt-get update && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y build-essential python3-dev python-dev
 
 # Install requirements first so they are cached
 RUN mkdir /simulation
