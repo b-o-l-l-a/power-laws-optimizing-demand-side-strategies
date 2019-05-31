@@ -25,6 +25,8 @@ PyBrain = "==0.3"
 Pyomo = "==5.4.3"
 jupyter = "*"
 gitpython = "*"
+matplotlib = "*"
+seaborn = "*"
 
 [dev-packages]
 
