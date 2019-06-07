@@ -11,20 +11,23 @@ SUBMIT_FILENAME = 'power-laws-optimizing-demand-side-strategies-submit-data'
 SUBMISSION_FORMAT_FILENAME = 'power-laws-optimizing-demand-side-strategies-submission-format'
 METADATA_FILENAME = 'power-laws-optimizing-demand-side-strategies-metadata'
 
+VIZ_DEFAULT_WIDTH = 18
+VIZ_DEFAULT_HEIGHT = 9
+
 def get_git_root(path):
     
     git_repo = git.Repo(path, search_parent_directories=True)
     
     return git_repo.working_dir
 
-def clean_full_training_df(path):
+def clean_full_training_df(path, timestamp_to_index = False):
     
     training_df = pd.read_csv(path, sep = ";")
     training_df["timestamp"] = pd.to_datetime(training_df["timestamp"])
     
     return training_df
 
-def clean_subsetted_df(df, subset_id_col, subset_id, timestamp_to_index = False):
+def clean_subsetted_df(df, subset_id_col, subset_id, timestamp_to_index):
     
     subsetted_df = df[df[subset_id_col] == subset_id]
     
