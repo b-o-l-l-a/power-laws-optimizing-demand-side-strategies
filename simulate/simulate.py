@@ -120,6 +120,7 @@ class Simulation(object):
         # efficiency can be different whether we intend to charge or discharge
         if target_energy_change >= 0:
             efficiency = self.battery.charging_efficiency
+            # assuming we multiply by .25 bc efficiency is based on per-hour basis, while simulation ran every 15 mins?
             target_charging_power = target_energy_change / ((15. / 60.) * efficiency)
         else:
             efficiency = self.battery.discharging_efficiency
