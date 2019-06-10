@@ -16,7 +16,7 @@ File | Description |
 `·   ├── assets` | **A FOLDER FOR ANY TRAINED MODELS/DATA THAT NEEDS TO BE LOADED BY `battery_controller.py`** |
 `·   ├── battery.py` | Contains an object for storing information about the battery. Some of the params of the Battery object include `(dis)charging capacity`, `(dis)charging efficiency`, and the `current charge` of the battery at the time of instantiation. |
 `·   ├── simulate.py` | Main entrypoint. Controls and executes the simulations. Tracks energy costs of electrifying the site with and without battery, which inform level of effectiveness of `propose_state_of_charge` method in `./battery_controller.py`. |
-`·   └── battery_controller.py` | Contains a `propose_state_of_charge` which suggests (dis)charging action based upon: <br></br>* Recent load / PV production at given timestep<br></br>* Load / PV forecasts for future timesteps<br></br>* Price of buying/selling energy at given timestep |
+`·   └── battery_controller.py` | Contains a `propose_state_of_charge` which suggests (dis)charging action based upon: <br></br>* Recent load / PV production at given timestep<br/>* Load / PV forecasts for future timesteps<br/>* Price of buying/selling energy at given timestep |
 `├── Dockerfile` | The definition for the Docker container on which the simulation executes. |
 `├── prepare_data.py` | File to account for differences between expected format of data from DrivenData and Schneider Electric |
 `├── README.md` | About the project. |
