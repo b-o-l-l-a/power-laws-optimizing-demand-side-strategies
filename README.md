@@ -2,14 +2,14 @@
 
 Based on this [DrivenData competition](https://www.drivendata.org/competitions/53/optimize-photovoltaic-battery/page/104/), the purpose of this project is to build an algorithm that controls a battery charging system and spends the least amount of money over a simulation period.
 
-The competition completed in the Spring 2018, but the data is still available from [Schneider Electric](https://data.exchange.se.com/explore/dataset/power-laws-optimizing-demand-side-strategies-training-data/information/?disjunctive.site_id) (Must sign up for free log in to access).
+The competition completed in the Spring 2018, but the data is still available from [Schneider Electric](https://data.exchange.se.com/explore/dataset/power-laws-optimizing-demand-side-strategies-training-data/information/?disjunctive.site_id) (Must sign up for free log in to access). Due to license agreements, the raw data must be downloaded from Schneider Electric; this project assumes the raw data is then placed in the `data/` subdirectory.
 
 
 ## Structure of this repo
 
 File | Description |
 ---- | ----- |
-`├── data` | A directory that has all of the input data as `.csv`s that are provided by the competition. Now that the [DrivenData competition](https://github.com/drivendataorg/power-laws-optimization) has completed, you can find the data on [Schneider Electric's website](https://data.exchange.se.com/explore/dataset/power-laws-optimizing-demand-side-strategies-training-data/information/?disjunctive.site_id). There are minor differences in data format and naming conventions between the DrivenData competition and on Scheider Electric's website, which are handled by `./prepare_data.py` |
+`├── data` | A directory that has all of the input data as `.csv`s that are provided by the competition. Now that the [DrivenData competition](https://github.com/drivendataorg/power-laws-optimization) has completed, you can find the data on [Schneider Electric's website](https://data.exchange.se.com/explore/dataset/power-laws-optimizing-demand-side-strategies-training-data/information/?disjunctive.site_id). <br></br>There are minor differences in data format and naming conventions between the DrivenData competition and on Scheider Electric's website, which are handled by `./prepare_data.py` |
 `├── output` | A directory for storing the output of a single simulation run. |
 `├── all_results` | This directory contains results from all of the runs executed. |
 `├── simulate` | The Python code for the simulation. |
