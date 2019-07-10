@@ -38,4 +38,28 @@ class BatteryContoller(object):
                                 pv_forecast):
 
         # return the proposed state of charge ...
+        
+        print("--------- timestamp")
+        print(timestamp)
+        print("--------- battery")
+        print("-- current_charge: {}".format(battery.current_charge))
+        print("-- capacity: {}".format(battery.capacity))
+        print("-- charging_power_limit: {}".format(battery.charging_power_limit))
+        print("-- discharging_power_limit: {}".format(battery.discharging_power_limit))
+        print("-- charging_efficiency: {}".format(battery.charging_efficiency))
+        print("-- discharging_efficiency: {}".format(battery.discharging_efficiency))
+        print("--------- actual_previous_load")
+        print(actual_previous_load)
+        print("--------- actual_previous_pv_production")
+        print(actual_previous_pv_production)
+        print("--------- price_buy")
+        print(price_buy)
+        print("--------- price_sell")
+        print(price_sell)
+        print("--------- load_forecast")
+        print(load_forecast)
+        print("--------- pv_forecast")
+        print(pv_forecast)
+        raise ValueError('')
+        
         return 1.0
