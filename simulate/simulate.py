@@ -6,7 +6,9 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-from battery_controller import BatteryContoller
+# from first_place_battery_controller import BatteryController
+from battery_controller import BatteryController
+
 from battery import Battery
 
 
@@ -52,7 +54,7 @@ class Simulation(object):
             It returns both the electricity cost spent using the battery and the
             cost that would have been incurred with no battery.
         """
-        battery_controller = BatteryContoller()
+        battery_controller = BatteryController()
 
         for current_time, timestep in tqdm(self.data.iterrows(), total=self.data.shape[0], desc=' > > > > timesteps\t'):
             # can't calculate results without actual, so skip (should only be last row)
@@ -156,6 +158,7 @@ if __name__ == '__main__':
     # store results of each run
     results = []
 
+    metadata = metadata[2:3]
     # # execute two runs with each battery for every row in the metadata file:
     for site_id, parameters in tqdm(metadata.iterrows(), desc='sites\t\t\t', total=metadata.shape[0]):
         site_data_path = data_dir/"submit"/f"{site_id}.csv"
@@ -165,7 +168,7 @@ if __name__ == '__main__':
                                     parse_dates=['timestamp'],
                                     index_col='timestamp')
 
-            for batt_id in tqdm([1, 2], desc=' > batteries \t\t'):
+            for batt_id in tqdm([1], desc=' > batteries \t\t'):
                 # create the battery for this run
                 # (Note: Quantities in kW are converted to watts here)
                 batt = Battery(capacity=parameters[f"Battery_{batt_id}_Capacity"] * 1000,
@@ -179,7 +182,8 @@ if __name__ == '__main__':
                 for g_id, g_df in tqdm(site_data.groupby('period_id'), total=n_periods, desc=' > > periods\t\t'):
                     # reset battery to no charge before simulation
                     batt.current_charge = 0
-
+                    
+                    g_df = g_df.sort_index()
                     sim = Simulation(g_df, batt, site_id)
                     money_spent, money_no_batt = sim.run()
 
